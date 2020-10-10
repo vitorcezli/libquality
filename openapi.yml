@@ -1,0 +1,153 @@
+openapi: '3.0.2'
+
+info:
+  description: 'LibQuality API to retrieve information about GitHub projects.'
+  version: '0.0.1'
+  title: 'LibQuality API'
+
+servers:
+  - url: 'https://localhost:8000/v1'
+    description: 'Development server'
+
+paths:
+  /issues/{repo}/count:
+    summary: "Get the number of issues on repository."
+    get:
+      parameters:
+        - in: path
+          name: repo
+          schema:
+            type: string
+          required: true
+          description: Repository whose number of issues will be retrieved.
+        - in: query
+          name: groupby
+          schema:
+            type: string
+            enum: [labels]
+          description: How to group the issues. Just 'labels' option will be
+            supported on Phase III. It is not implemented yet.
+      responses:
+        '200': &count-response
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Count'
+        '400':
+          description: Bad request.
+  /issues/{repo}/stats:
+    summary: "Get the statistics about the time the issues are opened on repository."
+    get:
+      parameters:
+        - in: path
+          name: repo
+          schema:
+            type: string
+          required: true
+          description: Repository whose statistics of issues will be retrieved.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Stats'
+        '400':
+          description: Bad request.
+  /issues/{repo}/hist:
+    summary: "Get the historical data of opened issues on repository."
+    get:
+      parameters:
+        - in: path
+          name: repo
+          schema:
+            type: string
+          required: true
+          description: Repository whose historical data of issues will be retrieved.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hist'
+        '400':
+          description: Bad request.
+  /forks/{repo}/count:
+    summary: "Get the number of forks on repository (Phase III)"
+    get:
+      parameters:
+        - in: path
+          name: repo
+          schema:
+            type: string
+          required: true
+          description: Repository whose number of forks will be retrieved.
+      responses:
+        '200': *count-response
+        '400':
+          description: Bad request.
+  /stars/{repo}/count:
+    summary: "Get the number of stars on repository (Phase III)"
+    get:
+      parameters:
+        - in: path
+          name: repo
+          schema:
+            type: string
+          required: true
+          description: Repository whose number of stars will be retrieved.
+      responses:
+        '200': *count-response
+        '400':
+          description: Bad request.
+  /contributors/{repo}/count:
+    summary: "Get the number of contributors on repository (Phase III)"
+    get:
+      parameters:
+        - in: path
+          name: repo
+          schema:
+            type: string
+          required: true
+          description: Repository whose number of contributors will be retrieved.
+      responses:
+        '200': *count-response
+        '400':
+          description: Bad request.
+
+components:
+  schemas:
+    Count:
+      type: 'object'
+      properties:
+        count:
+          type: 'integer'
+          example: 100
+    Stats:
+      type: 'object'
+      properties:
+        mean:
+          type: 'integer'
+          example: 80
+        std:
+          type: integer
+          example: 10
+    Hist:
+      type: 'object'
+      properties:
+        hist:
+          type: 'array'
+          items:
+            $ref: '#/components/schemas/HistObject'
+    HistObject:
+      type: 'object'
+      properties:
+        day:
+          type: 'string'
+          format: 'date-time'
+          example: '2020-10-11'
+        count:
+          type: 'integer'
+          example: 10

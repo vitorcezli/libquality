@@ -1,0 +1,102 @@
+[
+  {
+    "url": "https://api.github.com/repos/isocpp/CppCoreGuidelines/issues/1694",
+    "repository_url": "https://api.github.com/repos/isocpp/CppCoreGuidelines",
+    "labels_url": "https://api.github.com/repos/isocpp/CppCoreGuidelines/issues/1694/labels{/name}",
+    "comments_url": "https://api.github.com/repos/isocpp/CppCoreGuidelines/issues/1694/comments",
+    "events_url": "https://api.github.com/repos/isocpp/CppCoreGuidelines/issues/1694/events",
+    "html_url": "https://github.com/isocpp/CppCoreGuidelines/pull/1694",
+    "id": 718550228,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0NTAwOTI0MzQ1",
+    "number": 1694,
+    "title": "Update C.83 with swap for resource mgmt.",
+    "user": {
+      "login": "iglesias",
+      "id": 1158006,
+      "node_id": "MDQ6VXNlcjExNTgwMDY=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1158006?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/iglesias",
+      "html_url": "https://github.com/iglesias",
+      "followers_url": "https://api.github.com/users/iglesias/followers",
+      "following_url": "https://api.github.com/users/iglesias/following{/other_user}",
+      "gists_url": "https://api.github.com/users/iglesias/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/iglesias/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/iglesias/subscriptions",
+      "organizations_url": "https://api.github.com/users/iglesias/orgs",
+      "repos_url": "https://api.github.com/users/iglesias/repos",
+      "events_url": "https://api.github.com/users/iglesias/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/iglesias/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 8,
+    "created_at": "2020-10-10T06:52:47Z",
+    "updated_at": "2020-10-11T15:49:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "active_lock_reason": null,
+    "body": "The swap is useful to implement assignments idiomatically (e.g. copy-swap idiom).\r\n\r\nWith the current enforcement, to non-virtual classes, very simple classes (e.g. `trivially_copyable`, a struct encapsulating an stl container) are suggested to have a swap. This suggestion can be argued wrong since for very simple classes copy-swap idiom is not efficient (the creation of a third object on assignment is not needed, which copy-swap does).",
+    "performed_via_github_app": null
+  },
+  {
+    "url": "https://api.github.com/repos/isocpp/CppCoreGuidelines/issues/1693",
+    "repository_url": "https://api.github.com/repos/isocpp/CppCoreGuidelines",
+    "labels_url": "https://api.github.com/repos/isocpp/CppCoreGuidelines/issues/1693/labels{/name}",
+    "comments_url": "https://api.github.com/repos/isocpp/CppCoreGuidelines/issues/1693/comments",
+    "events_url": "https://api.github.com/repos/isocpp/CppCoreGuidelines/issues/1693/events",
+    "html_url": "https://github.com/isocpp/CppCoreGuidelines/issues/1693",
+    "id": 716282456,
+    "node_id": "MDU6SXNzdWU3MTYyODI0NTY=",
+    "number": 1693,
+    "title": "prefer `while (true)` vs `for (;;)`",
+    "user": {
+      "login": "tiagomacarios",
+      "id": 5450113,
+      "node_id": "MDQ6VXNlcjU0NTAxMTM=",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5450113?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tiagomacarios",
+      "html_url": "https://github.com/tiagomacarios",
+      "followers_url": "https://api.github.com/users/tiagomacarios/followers",
+      "following_url": "https://api.github.com/users/tiagomacarios/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tiagomacarios/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tiagomacarios/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tiagomacarios/subscriptions",
+      "organizations_url": "https://api.github.com/users/tiagomacarios/orgs",
+      "repos_url": "https://api.github.com/users/tiagomacarios/repos",
+      "events_url": "https://api.github.com/users/tiagomacarios/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tiagomacarios/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 4,
+    "created_at": "2020-10-07T07:40:57Z",
+    "updated_at": "2020-10-07T15:55:59Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "active_lock_reason": null,
+    "body": "The Core Guidelines use for (;;) to refer to infinite loops (ex [ES.32: Use ALL_CAPS for all macro name](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#es32-use-all_caps-for-all-macro-names)). Wouldn't it be preferred to use while (true). I would think that the later is more friendly to beginners and somewhat more explicit.",
+    "performed_via_github_app": null
+  }
+]

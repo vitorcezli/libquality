@@ -1,0 +1,30 @@
+version: "3.3"
+
+services:
+  database:
+    container_name: database
+    image: mongo:xenial
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    networks:
+      - libquality_net
+  libquality:
+    container_name: libquality
+    build:
+      context: .
+    environment:
+      MONGO_URL: ${MONGO_URL}
+      MONGO_USER: ${MONGO_USER}
+      MONGO_PASSWORD: ${MONGO_PASSWORD}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+    ports:
+      - ${PORT}:8000
+    networks:
+      - libquality_net
+    depends_on:
+      - database
+
+networks:
+  libquality_net:
+    driver: bridge
