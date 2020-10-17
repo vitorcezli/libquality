@@ -53,4 +53,4 @@ extension for new features.
 
 LibQuality is developed to be fast, retrieving information from GitHub as fast
 as possible. This way, */issues/:repo/hist* will just return historical data of
-issues after the time its data is started to be collected.
+issues after the time the repository data is started to be collected.
