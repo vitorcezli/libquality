@@ -41,9 +41,7 @@ to be searched must be URL encoded, like *react native* that is encoded to
 ## Documentation
 
 *openapi.yml* is an Open API file that presents the endpoints of LibQuality and
-*libquality.pdf* contains the flow of requests on LibQuality, where the top image
-represents the flow for request about issues, and the bottom image represents the
-flow for other information (like the ones from Phase III).
+*libquality.pdf* contains the architecture of LibQuality.
 
 The code of LibQuality is also documented with ideas about the development and
 extension for new features.
