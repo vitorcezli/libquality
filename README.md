@@ -34,7 +34,9 @@ to be searched must be URL encoded, like *react native* that is encoded to
 *react%20native*):
 
 `curl "http://localhost:8000/v1/issues/vue/count"`
+
 `curl "http://localhost:8000/v1/issues/react%20native/stats"`
+
 `curl "http://localhost:8000/v1/issues/angular/hist"`
 
 
